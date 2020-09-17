@@ -106,7 +106,7 @@ BEGIN
 
     decodificador : ENTITY work.decodificador2x4
         PORT MAP(
-            seletor => barramentoEnderecos(addrWidth - 1 DOWNTO addrWidth - 2),
+            seletor => barramentoEnderecos(addrWidth - 1 DOWNTO 0),
             habilita => habilitaBlocos
         );
 

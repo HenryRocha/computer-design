@@ -60,17 +60,17 @@ ARCHITECTURE assincrona OF memoriaROM IS
         RETURN blocoMemoria IS VARIABLE tmp : blocoMemoria := (OTHERS => (OTHERS => '0'));
     BEGIN
         -- Inicializa os endereços:
-        tmp(0) := LW & "10000000"; --Endereco 128 Le chave
+        tmp(0) := LW & "10000100"; --Endereco 132 Le chave
         -- tmp(1) := SubtraiImed & "00000001";   -- Subtrai 1
-        tmp(1) := SW & "11000000"; --Endereco 192 Escreve LEDs
-        -- tmp(3) := SomaImed & "00000001";   -- Soma 1
-        -- tmp(4) := SW & "01000000";  --Endereco 64  Salva RAM
+        tmp(1) := SomaImed & "00000001";   -- Soma 1
+        tmp(2) := SW & "01000000";  --Endereco 64  Salva RAM
         -- tmp(5) := SomaImed & "00000001";   -- Soma 1
         -- tmp(6) := SW & "01000001";  --Endereco 65
-        -- tmp(7) := LW & "01000000";  --Endereco 64  Le RAM
+        tmp(3) := LW & "01000000";  --Endereco 64  Le RAM
+        tmp(4) := SW & "11001000"; --Endereco 200 Escreve LEDs
         -- tmp(8) := LW & "01000001";  --Endereco 65  Le RAM
         -- tmp(9) := SW & "11000000";  --Endereco 192 Escreve LEDs
-        tmp(3) := Jump & "00000000";
+        tmp(5) := Jump & "00000000";
         RETURN tmp;
     END initMemory;
 
