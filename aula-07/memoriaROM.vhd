@@ -26,14 +26,23 @@ ARCHITECTURE assincrona OF memoriaROM IS
         RETURN blocoMemoria IS VARIABLE tmp : blocoMemoria := (OTHERS => (OTHERS => '0'));
     BEGIN
         -- Inicializa os endereços:
+        -- Carrega RAM[0] (que é igual a 1) no ACC.
         tmp(0) := Load & x"000";
-        --        tmp(1) := x"42";
-        --        tmp(2) := x"43";
-        --        tmp(3) := x"44";
-        --        tmp(4) := x"45";
-        --        tmp(5) := x"46";
-        --        tmp(6) := x"47";
-        --        tmp(7) := x"55";
+        -- Soma RAM[0] ao ACC 3 vezes, portanto ACC = 4.
+        tmp(1) := AddAccMem & x"000";
+        tmp(2) := AddAccMem & x"000";
+        tmp(3) := AddAccMem & x"000";
+        -- Subtrai RAM[0] do ACC, portanto ACC = 3.
+        tmp(4) := SubAccMem & x"000";
+        -- Guarda o ACC em RAM[1].
+        tmp(5) := Store & x"001";
+        -- Soma RAM[0] ao ACC 3 vezes, portanto ACC = 7.
+        tmp(6) := AddAccMem & x"000";
+        tmp(7) := AddAccMem & x"000";
+        tmp(8) := AddAccMem & x"000";
+        tmp(9) := AddAccMem & x"000";
+        -- Soma RAM[1] ao ACC, portanto ACC = 10.
+        tmp(10) := AddAccMem & x"001";
         RETURN tmp;
     END initMemory;
 

@@ -26,7 +26,6 @@ ARCHITECTURE rtl OF memoriaRAM IS
     BEGIN
         -- Inicializa os endereços:
         tmp(0) := x"0001";
-        tmp(1) := x"0002";
         --        tmp(1) := x"42";
         --        tmp(2) := x"43";
         --        tmp(3) := x"44";
