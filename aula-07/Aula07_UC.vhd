@@ -12,6 +12,7 @@ ENTITY Aula07_UC IS
         CLOCK_50     : IN std_logic;
         FPGA_RESET_N : IN std_logic;
         -- Output ports
+        LEDR       : OUT std_logic_vector(9 DOWNTO 0);
         HEX0, HEX1 : OUT std_logic_vector(6 DOWNTO 0)
         -- programCounter  : OUT std_logic_vector(ADDR_WIDTH - 1 DOWNTO 0);
         -- saidaAcumulador : OUT std_logic_vector(DATA_WIDTH - 1 DOWNTO 0)
@@ -56,4 +57,7 @@ BEGIN
             negativo  => '0',
             overFlow  => '0',
             saida7seg => HEX1);
+
+    LEDR(0) <= NOT FPGA_RESET_N;
+    LEDR(1) <= clk;
 END ARCHITECTURE;
